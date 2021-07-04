@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><body bgcolor="#dddddd"> 
+  <div id="container">
+    <a href="/home/search"><button>Search</button></a><a href="/home/search"><button>Update</button></a><a href="/home" ><button>Home</button></a><br>
+    <div id="data">
+      <br>Cutomer Id : {{ data.id }}
+      <br>Name : {{ data.name }}
+      <br>Address : {{ data.address }}
+      <br>Amount : {{ data.amount }}
+      <br>
+    </div>
+   <form onsubmit="submit_form()">
+      id : <input type="text" id="ins_id">
+      <button id="btn"> Submit Button </button>
+    </form>
+    </div>
+  </body>
+  <script>
+        var submit_form= function(){
+          var fun = fetch('', 
+          {
+            method : 'POST',
+            body : JSON.stringify(document.getElementById("ins_id").value)
+          });
+        };
+  </script>
+  <style>
+    #data{
+      color:#000;
+      margin-bottom: 30px;
+    }
+    #container{
+      background-color: blueviolet;
+      margin:100px;
+      padding: 100px;
+    }
+  </style>
+</html>
